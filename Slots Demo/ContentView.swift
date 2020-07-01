@@ -10,9 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    private var symbols = ["apple", "donut", "lemon"]
     @State private var numbers = [0, 0, 0]
     @State private var credits = 1000
+
+    private var symbols = ["apple", "donut", "lemon"]
+    private var betAmount = 5
     
     var body: some View {
         ZStack {
@@ -64,6 +66,13 @@ struct ContentView: View {
                     self.numbers[0] = Int.random(in: 0...self.symbols.count - 1)
                     self.numbers[1] = Int.random(in: 0...self.symbols.count - 1)
                     self.numbers[2] = Int.random(in: 0...self.symbols.count - 1)
+                    
+                    if self.numbers[0] == self.numbers[1]
+                        && self.numbers[1] == self.numbers[2] {
+                        self.credits += self.betAmount * 10
+                    } else {
+                        self.credits -= self.betAmount
+                    }
                 }) {
                     Text("Spin")
                         .bold()
