@@ -34,7 +34,7 @@ struct ContentView: View {
                     Image(systemName: "star.fill").foregroundColor(.yellow)
                 }.scaleEffect(2)
                 Spacer()
-                Text("Credits: 1000")
+                Text("Credits: " + String(credits))
                     .foregroundColor(.black)
                     .padding(.all, 10)
                     .background(Color.white.opacity(0.5))
